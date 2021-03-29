@@ -1,10 +1,11 @@
 GIT_SUPPORT_PATH=  ${HOME}/.git-support
 HOOKS=${GIT_SUPPORT_PATH}/hooks
 PRECOMMIT=${GIT_SUPPORT_PATH}/hooks/pre-commit
+PREPUSH=${GIT_SUPPORT_PATH}/hooks/pre-push
 PATTERNS=${GIT_SUPPORT_PATH}/gitleaks.toml
 GITLEAKS= /usr/local/bin/gitleaks
 
-INSTALL_TARGETS= ${PATTERNS} ${PRECOMMIT} ${GITLEAKS}
+INSTALL_TARGETS= ${PATTERNS} ${PRECOMMIT} ${PREPUSH} ${GITLEAKS}
 
 .PHONY: clean audit global_hooks
 
@@ -18,6 +19,9 @@ ${PATTERNS}: local.toml ${GIT_SUPPORT_PATH}
 	cat $< > $@
 
 ${PRECOMMIT}: pre-commit.sh ${HOOKS}
+	install -m 0755 -cv $< $@
+
+${PREPUSH}: pre-push.sh ${HOOKS}
 	install -m 0755 -cv $< $@
 
 ${GIT_SUPPORT_PATH} ${HOOKS}:
