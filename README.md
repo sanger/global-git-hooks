@@ -40,6 +40,14 @@ This will:
 - Edit local.toml
 - Re-install using `make install`
 
+## Ignoring false positive git leaks
+
+If there is a file or line that triggers a git leaks rule, but isn't a problem (for instance, a dummy password),
+you can use the gitleaks 'allowlist' functionality to ignore it.
+
+See documentation here - https://github.com/zricethezav/gitleaks#rules-summary
+
+I haven't been able to get the global allowlist to work yet, so I recommend using the per-rule allowlist. Bear in mind that this will apply across all your local repos.
 
 ## Adding new global hook behaviour
 
@@ -53,3 +61,7 @@ This will:
 ### My hook isn't running!
 
 We have only currently added hook files for pre-commit and pre-push, as they are the only ones we use at this time. If you are trying to implement a different hook, you will need to add a file for it that points back to the local .git/hooks directory, like the pre-push one does.
+
+### I'm getting errors while uing a git GUI
+
+You might have issues using git hooks with git GUIs like Sourcetree, for instance due to $PATH not containing the same information as it does in your shell, or the ruby environment being incorrect. I haven't resolved this yet.
