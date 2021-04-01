@@ -3,7 +3,7 @@
 [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
 
 Global client-side git hooks.
-This was copied and modified from https://github.com/cloud-gov/caulking/
+This was initially inspired by https://github.com/cloud-gov/caulking/
 
 
 ## Setup steps
@@ -14,16 +14,14 @@ Clone the project. From global-git-hooks root directory, run:
 
 This will:
 - Create a new folder in your home directory, called .git-support
-- Copy git hook files and gitleaks config file under this new folder
+- Copy git hook files under this new folder
 - Set your global [git config core.hooksPath](https://git-scm.com/docs/git-config#Documentation/git-config.txt-corehooksPath) to point to this new subdirectory
-- Set a new git config setting hooks.gitleaks to true
-- Try to install [gitleaks](https://github.com/zricethezav/gitleaks) using homebrew. If you already have it installed that's OK
 
 
 ## What does it do?
 
 - Provides a way of setting up git hooks that work globally, across all your repos
-- Uses that pattern to run a pre-commit check using gitleaks, which scans all your modified files (staged and unstaged) for potential credential leaks
+- Uses that pattern to run a pre-commit check using [talisman](https://github.com/thoughtworks/talisman), which scans all your staged changes for potential credential leaks
 - It calls your local, repo-specific git hooks as well, and is compatible with Lefthook (doesn't use it, but doesn't break it either)
 
 
@@ -34,20 +32,6 @@ This will:
 - These hooks first run any local, repo-specific hooks you have set up in the repo's .git/hooks folder
 - Then, they can implement any global hook behaviour
 
-
-## Changing gitleaks rules
-
-- Edit local.toml
-- Re-install using `make install`
-
-## Ignoring false positive git leaks
-
-If there is a file or line that triggers a git leaks rule, but isn't a problem (for instance, a dummy password),
-you can use the gitleaks 'allowlist' functionality to ignore it.
-
-See documentation here - https://github.com/zricethezav/gitleaks#rules-summary
-
-I haven't been able to get the global allowlist to work yet, so I recommend using the per-rule allowlist. Bear in mind that this will apply across all your local repos.
 
 ## Adding new global hook behaviour
 
