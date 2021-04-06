@@ -16,6 +16,9 @@ This will:
 - Create a new folder in your home directory, called .git-support
 - Copy git hook files under this new folder
 - Set your global [git config core.hooksPath](https://git-scm.com/docs/git-config#Documentation/git-config.txt-corehooksPath) to point to this new subdirectory
+- Try to install talisman. You have to answer a few prompts:
+  - When the installation asks 'Please enter root directory to search for git repos', enter dummy-folder
+  - When the installation asks whether to install interactive mode, choose no
 
 
 ## What does it do?
