@@ -19,6 +19,7 @@ This will:
 - Try to install talisman. You have to answer a few prompts:
   - When the installation asks 'Please enter root directory to search for git repos', enter dummy-folder
   - When the installation asks whether to install interactive mode, choose no
+  - When the installation asks where to add the PATH information, choose `.profile`
 
 
 ## What does it do?
