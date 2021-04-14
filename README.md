@@ -36,6 +36,10 @@ This will:
 - These hooks first run any local, repo-specific hooks you have set up in the repo's .git/hooks folder
 - Then, they can implement any global hook behaviour
 
+## What if talisman raises a false positive?
+
+- The output of the talisman scan will tell you how to bypass this particular file by adding to the .talismanrc file, if it is not a real credential being leaked ([docs](https://github.com/thoughtworks/talisman#ignoring-files)).
+- Or, you can skip all the pre-commit hooks this time, using the --no-verify flag on git commit ([docs](https://git-scm.com/docs/githooks#_pre_commit))
 
 ## Adding new global hook behaviour
 
