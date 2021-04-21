@@ -29,7 +29,7 @@ talisman_install:
 	@echo "talisman_install"
 	mkdir dummy-folder
 	@echo "****************************************************************************************************************************"
-	@echo "When the installation asks 'Please enter root directory to search for git repos', enter dummy-folder"
+	@echo "When the installation asks 'Please enter root directory to search for git repos', enter 'dummy-folder'"
 	@echo "When the installation asks whether to install interactive mode, choose no"
 	@echo "****************************************************************************************************************************"
 	curl --silent  https://raw.githubusercontent.com/thoughtworks/talisman/master/global_install_scripts/install.bash > /tmp/install_talisman.bash && /bin/bash /tmp/install_talisman.bash
