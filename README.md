@@ -1,7 +1,5 @@
 # Global Git Hooks
 
-[![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
-
 Global client-side git hooks.
 This was initially inspired by https://github.com/cloud-gov/caulking/
 
